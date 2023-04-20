@@ -6,22 +6,25 @@ const app = express();
 const path = require('path');
 const renderComponent = require('./middlewares/renderComponent');
 //импорт роута
-const createPage = require()
-const editPage = require()
-const auth = require()
-const register = require()
+const createPage = require('./routs/createPage')
+const mainPage = require('./routs/mainPage')
+const editPage = require('./routs/editPage')
+const authRout = require('./routs/auth')
+const register = require('./routs/login')
 
 // мидлварки
 app.use(express.static(path.join(__dirname, 'publick')))
 app.use(renderComponent)
 // роуты
 app.use('/',createPage)
+app.use('/',mainPage)
 app.use('/',editPage)
-app.use('/',auth)
+app.use('/',authRout)
 app.use('/',register)
 
 
 
 
-const { PORT } = process.env;
-app.listen(PORT, () => console.log(`Server started at ${PORT}`));
+// const { PORT } = process.env;
+// app.listen(PORT, () => console.log(`Server started at ${PORT}`));
+app.listen(3000)

@@ -1,15 +1,12 @@
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 const authRout = require('express').Router()
-const auth = require('')
+const auth = require('../component/Auth')
 
 
 
-authRout.get('/', (req,res)=>{
-    const element = React.createElement()
-    const html = ReactDOMServer.renderToStaticMarkup(element)
-    res.write(`<!DOCTYPE html>`)
-    res.end(html)
+authRout.get('/register', (req,res)=>{
+    res.send(res.renderComponent(auth, {}));
 })
 
-module.exports = auth
+module.exports = authRout
