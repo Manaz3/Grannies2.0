@@ -23,7 +23,24 @@ function Layout({ children, user }) {
                 На Главную
               </a>
             </li>
-            <li className="nav-item">
+
+            {user ? (
+              <>
+              <li className="nav-item"> 
+                  <a className="nav-link disabled">Создать пост</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link disabled">Привет, {user.login}!</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="/auth/logout">
+                    выход
+                  </a>
+                </li>
+              </>
+            ) : (
+            <>
+              <li className="nav-item">
               <button className="nav-link js-register">
                 Регистрация
               </button>
@@ -33,7 +50,11 @@ function Layout({ children, user }) {
                 Авторизация
               </button>
             </li>
-          </ul>
+          </>
+            )}
+            </ul>
+
+            
         </header>
         <div className="container">{children}</div>
       </body>

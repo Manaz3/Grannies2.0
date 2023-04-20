@@ -29,7 +29,7 @@ function MainPage({ entries = 0, user }) {
     const modalRegister = (
     <div>
     <form id="register-form" className="register-form js-register-form">
-      <div className="modal-content">
+      <div className="modal-content">user 
         <h1>Регистрация</h1>
 
         <select name="select" className="form-select" aria-label="Default select example">

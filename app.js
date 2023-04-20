@@ -6,6 +6,7 @@ const session = require('express-session');
 
 
 const path = require('path');
+const getUser = require('./middlewares/getUser');
 const renderComponent = require('./middlewares/renderComponent');
 //импорт роута
 const sessionConfig = require('./config/session');
@@ -20,6 +21,7 @@ app.use(session(sessionConfig));
 app.use(express.json())
 app.use(express.urlencoded({ extended:true }))
 app.use(express.static(path.join(__dirname, 'public')))
+app.use(getUser);
 
 app.use(renderComponent)
 // роуты

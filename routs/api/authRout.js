@@ -71,26 +71,26 @@ authApiRouter.post('/', async (req, res) => {
     }
   });
   
-  // authApiRouter.post('/login', async (req, res) => {
-  //   const { login, password } = req.body;
+  authApiRouter.post('/', async (req, res) => {
+    const { login, password } = req.body;
   
-  //   // ищем пользователя в БД
-  //   const user = await User.findOne({ where: { login } });
-  //   // password = '******'
-  //   // user.password - хэш
-  //   // compare - вернёт true если пароль правильный
-  //   if (!user || !(await bcrypt.compare(password, user.password))) {
-  //     res.json({ success: false, message: 'Нет такого пользователя либо пароли не совпадают' });
-  //     return;
-  //   }
+    // ищем пользователя в БД
+    const user = await Granny.findOne({ where: { login } });
+    // password = '******'
+    // user.password - хэш
+    // compare - вернёт true если пароль правильный
+    if (!user || !(await bcrypt.compare(password, user.password))) {
+      res.json({ success: false, message: 'Нет такого пользователя либо пароли не совпадают' });
+      return;
+    }
   
-  //   // авторизация - запоминаем пользователя
-  //   // express-session сам создаст session-id и файл [sid].json
-  //   // положил туда userId
-  //   req.session.userId = user.id;
+    // авторизация - запоминаем пользователя
+    // express-session сам создаст session-id и файл [sid].json
+    // положил туда userId
+    req.session.userId = user.id;
   
-  //   res.json({ success: true });
-  // });
+    res.json({ success: true });
+  });
 
   module.exports = authApiRouter
   
