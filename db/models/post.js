@@ -9,15 +9,13 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(Granny) {
-      this.belongsTo(Granny, { foreignkey: grannyId})
+    static associate({Granny}) {
+      this.belongsTo(Granny, { foreignKey: "grannyId"})
     }
   }
   Post.init({
     title: {
       type: DataTypes.TEXT,
-      allowNull:false,
-
     },
     value: {
       type: DataTypes.TEXT,
@@ -28,6 +26,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull:false,
     },
     grannyId: {
+     type: DataTypes.INTEGER,
      references: {
       model: 'Grannies',
       key: 'id'

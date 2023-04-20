@@ -11,7 +11,6 @@ module.exports = {
       },
       title: {
         type: Sequelize.TEXT,
-        allowNull:false,
 
       },
       value: {
@@ -23,6 +22,7 @@ module.exports = {
         allowNull:false,
       },
       grannyId: {
+        type: Sequelize.INTEGER,
        references: {
         model: 'Grannies',
         key: 'id'

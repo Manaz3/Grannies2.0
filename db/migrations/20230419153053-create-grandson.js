@@ -18,6 +18,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: false
       },
+      grannyLogin: {
+        type: Sequelize.TEXT,
+        allowNull: false
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
