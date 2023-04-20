@@ -5,7 +5,7 @@ function Layout({ children, user }) {
     <html lang="ru">
       <head>
         <meta charSet="UTF-8" />
-        <title>Advices to my kids</title>
+        <title>Бабушкины записки</title>
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -17,19 +17,19 @@ function Layout({ children, user }) {
       <body>
         {/* навигация */}
         <header>
-          <ul class="nav justify-content-center">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
+          <ul className="nav justify-content-center">
+            <li className="nav-item">
+              <a className="nav-link js-main" aria-current="page" href="#">
                 На Главную
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link js-register" href="#">
                 Регистрация
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
+            <li className="nav-item">
+              <a className="nav-link js-auth" href="#">
                 Авторизация
               </a>
             </li>
@@ -37,6 +37,7 @@ function Layout({ children, user }) {
         </header>
         <div className="container">{children}</div>
       </body>
+      <script src="/js/layout.js" defer></script>
     </html>
   );
 }

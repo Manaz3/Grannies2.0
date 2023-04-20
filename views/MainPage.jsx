@@ -5,16 +5,19 @@ function MainPage({ entries, user }) {
   const content =
     entries.length > 0 ? (
       entries.map((entry) => (
-        <div key={entry.id} data-id={entry.id} className="entry js-entry">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <a href="#">Детали</a>
+        <div className="entry js-entry" key={entry.id} data-id={entry.id}>
+          <img className="image" src={entry.image} width={400} height={300} />
+          <span className="entry-title">{entry.body}</span>
+          <ol className="breadcrumb">
+            <li className="breadcrumb-item">
+              <a href="#" className="js-edit">
+                Редактирование
+              </a>
             </li>
-            <li class="breadcrumb-item">
-              <a href="#">Редактирование</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="#">Удаление</a>
+            <li className="breadcrumb-item">
+              <a href="#" className="js-delete">
+                Удаление
+              </a>
             </li>
           </ol>
         </div>
