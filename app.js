@@ -3,6 +3,7 @@ require('dotenv').config();
 const express = require('express');
 const app = express();
 
+
 const path = require('path');
 const renderComponent = require('./middlewares/renderComponent');
 //импорт роута
@@ -28,3 +29,4 @@ app.use('/',register)
 // const { PORT } = process.env;
 // app.listen(PORT, () => console.log(`Server started at ${PORT}`));
 app.listen(3000)
+
