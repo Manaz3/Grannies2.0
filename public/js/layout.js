@@ -6,9 +6,8 @@ const body = document.querySelector('body');
 
 // открытие модального окна
 register.addEventListener('click', (event) => {
-  if (event.target === register) {
+
     modalRegister.style.display = 'block';
-  }
 });
 
 // закрытие модального окна
@@ -20,9 +19,7 @@ body.addEventListener('click', (event) => {
 
 // открытие модального окна
 auth.addEventListener('click', (event) => {
-  if (event.target === auth) {
     modalAuth.style.display = 'block';
-  }
 });
 
 // закрытие модального окна

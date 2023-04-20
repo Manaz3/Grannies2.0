@@ -20,7 +20,6 @@ module.exports = {
       },
       grannyLogin: {
         type: Sequelize.TEXT,
-        allowNull: false
       },
       createdAt: {
         allowNull: false,

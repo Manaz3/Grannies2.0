@@ -1,7 +1,7 @@
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 const editPageRoute = require('express').Router()
-const editPage = require('../component/editPage')
+const editPage = require('../../views/Edit')
 
 
 editPageRoute.get('/edit', (req,res)=>{

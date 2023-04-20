@@ -19,19 +19,19 @@ function Layout({ children, user }) {
         <header>
           <ul className="nav justify-content-center">
             <li className="nav-item">
-              <a className="nav-link js-main" aria-current="page" href="#">
+              <a className="nav-link js-main" aria-current="page" href="/">
                 На Главную
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link js-register" href="#">
+              <button className="nav-link js-register">
                 Регистрация
-              </a>
+              </button>
             </li>
             <li className="nav-item">
-              <a className="nav-link js-auth" href="#">
+              <button className="nav-link js-auth">
                 Авторизация
-              </a>
+              </button>
             </li>
           </ul>
         </header>

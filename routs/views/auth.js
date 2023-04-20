@@ -1,11 +1,11 @@
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 const authRout = require('express').Router()
-const auth = require('../component/Auth')
+const auth = require('../../views/MainPage')
 
 
 
-authRout.get('/register', (req,res)=>{
+authRout.get('/login', (req,res)=>{
     res.send(res.renderComponent(auth, {}));
 })
 

@@ -1,7 +1,7 @@
 const React = require('react')
 const ReactDOMServer = require('react-dom/server')
 
-const MainPage = require('../component/MainPage')
+const MainPage = require('../../views/MainPage')
 const mainPageRoute = require('express').Router()
 
 

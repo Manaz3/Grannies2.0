@@ -24,8 +24,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false
     },
     grannyLogin: {
-      type: Sequelize.TEXT,
-      allowNull: false
+      type: DataTypes.TEXT,
     },
   }, {
     sequelize,
