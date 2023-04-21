@@ -23,16 +23,23 @@ function Layout({ children, user }) {
                 На Главную
               </a>
             </li>
-            <li className="nav-item">
-              <button className="nav-link js-register">
-                Регистрация
-              </button>
-            </li>
-            <li className="nav-item">
-              <button className="nav-link js-auth">
-                Авторизация
-              </button>
-            </li>
+            {user ? (
+              <>
+                <span>Сердечно приветствую тебя {user}</span>
+                <li className="nav-item">
+                  <button className="nav-link js-register">Выход</button>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <button className="nav-link js-register">Регистрация</button>
+                </li>
+                <li className="nav-item">
+                  <button className="nav-link js-auth">Авторизация</button>
+                </li>
+              </>
+            )}
           </ul>
         </header>
         <div className="container">{children}</div>
