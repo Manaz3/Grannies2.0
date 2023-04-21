@@ -27,13 +27,13 @@ function Layout({ children, user }) {
             {user ? (
               <>
               <li className="nav-item"> 
-                  <a className="nav-link disabled">Создать пост</a>
+                  <a className="nav-link disabled" href="/create">Создать пост</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link disabled">Привет, {user.login}!</a>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link" href="/auth/logout">
+                  <a className="nav-link" href="/logout">
                     выход
                   </a>
                 </li>

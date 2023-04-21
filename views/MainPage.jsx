@@ -1,23 +1,23 @@
 const React = require('react');
 const Layout = require('./Layout');
 
-function MainPage({ entries = 0, user }) {
+function MainPage({ post, user }) {
   const content =
-    entries.length > 0 ? (
-      entries.map((entry) => (
+    post.length > 0 ? (
+      post.map((entry) => (
         <div className="entry js-entry" key={entry.id} data-id={entry.id}>
           <img className="image" src={entry.image} width={400} height={300} />
           <span className="entry-title">{entry.body}</span>
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="#" className="js-edit">
+              <button className="js-edit">
                 Редактирование
-              </a>
+              </button>
             </li>
             <li className="breadcrumb-item">
-              <a href="#" className="js-delete">
+              <button className="js-delete">
                 Удаление
-              </a>
+              </button>
             </li>
           </ol>
         </div>
@@ -58,7 +58,7 @@ function MainPage({ entries = 0, user }) {
             type="login"
             name="grannyLogin"
             className="form-control"
-            id="exampleInputLogin1"
+            id="exampleInputLogin2"
             aria-describedby="loginHelp"
             placeholder="Кто твоя бабулечка?"
           />
@@ -97,7 +97,7 @@ function MainPage({ entries = 0, user }) {
 
     const modalAuth = (
       <div>
-      <form id="register-form" className="auth-form js-auth-form">
+      <form id="login-form" className="auth-form js-auth-form">
         <div className="modal-content">
           <h1>Авторизация</h1>
           <div className="mb-3">
@@ -115,14 +115,14 @@ function MainPage({ entries = 0, user }) {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">
+            <label htmlFor="exampleInputPassword3" className="form-label">
               Пароль
             </label>
             <input
               type="password"
               name="password"
               className="form-control"
-              id="exampleInputPassword1"
+              id="exampleInputPassword3"
               placeholder="Пароль"
             />
           </div>
@@ -132,15 +132,15 @@ function MainPage({ entries = 0, user }) {
           </button>
         </div>
       </form>
-
-      <script src="/js/auth.js" />
     </div>
     )
 
   return (
-    <Layout>
+    <Layout user={user}>
       <main className="js-entries-container">{content}</main>
-      <script defer src="/js/register.js"  />
+      <script defer src="/js/register.js" />
+      <script defer src="/js/login.js" />
+      <script defer src="/js/mainPage.js" />
       {modalRegister}
       {modalAuth}
     </Layout>

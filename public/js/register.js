@@ -1,13 +1,11 @@
-const registerForm = document.getElementById('register-form');
-console.log(registerForm);
+const registerForm = document.getElementById('register-form')
 
 registerForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   const register = event.target;
   const { select, login, grannyLogin, password, password2 } = register;
-  console.log(select.value,login.value,grannyLogin.value,password.value, password2.value,);
 
-  const response = await fetch(`/register`, {
+  const response = await fetch(`auth/register`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 
 const { Granny, Grandson } = require('../../db/models');
 
-authApiRouter.post('/', async (req, res) => {
+authApiRouter.post('/register', async (req, res) => {
     try {
       const { select, login, grannyLogin, password, password2 } = req.body;
       console.log(select, login, grannyLogin, password, password2);
@@ -71,11 +71,13 @@ authApiRouter.post('/', async (req, res) => {
     }
   });
   
-  authApiRouter.post('/', async (req, res) => {
+  authApiRouter.post('/login', async (req, res) => {
     const { login, password } = req.body;
+    console.log(login, password)
   
     // ищем пользователя в БД
     const user = await Granny.findOne({ where: { login } });
+    console.log(user)
     // password = '******'
     // user.password - хэш
     // compare - вернёт true если пароль правильный
@@ -88,8 +90,8 @@ authApiRouter.post('/', async (req, res) => {
     // express-session сам создаст session-id и файл [sid].json
     // положил туда userId
     req.session.userId = user.id;
-  
     res.json({ success: true });
+
   });
 
   module.exports = authApiRouter

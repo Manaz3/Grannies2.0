@@ -14,6 +14,7 @@ const createPage = require('./routs/views/createPage')
 const mainPage = require('./routs/views/mainPage')
 const editPage = require('./routs/views/editPage')
 const authRout = require('./routs/api/authRout')
+const loginApiRouter = require('./routs/api/login.rout')
 
 
 // мидлварки
@@ -25,10 +26,11 @@ app.use(getUser);
 
 app.use(renderComponent)
 // роуты
-app.use('/register',authRout)
+app.use('/auth',authRout)
 app.use('/',createPage)
 app.use('/',mainPage)
 app.use('/',editPage)
+app.use('/', loginApiRouter)
 
 
 
