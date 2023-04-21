@@ -17,23 +17,3 @@ entriesContainer.addEventListener('click', async (event) => {
     adviceDiv.remove();
   }
 });
-
-// запрашиваем форму редактированиея
-entriesContainer.addEventListener('click', async (event) => {
-  if (event.target.classList.contains('js-edit')) {
-    event.preventDefault();
-    const edt = event.target;
-    const li = edt.closest('.js-entry');
-    const { id } = li.dataset;
-    const wrapper = li.querySelector('.form-wrapper');
-    if (li.querySelector('.form-wrapper')) {
-      wrapper.remove();
-    } else {
-      const response = await fetch(`#######${id}`, {
-        method: 'GET',
-      });
-      const { html } = await response.json();
-      li.insertAdjacentHTML('beforeend', html);
-    }
-  }
-});
