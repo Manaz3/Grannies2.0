@@ -1,23 +1,24 @@
-const React = require('react')
-const ReactDOMServer = require('react-dom/server')
+const React = require('react');
+const ReactDOMServer = require('react-dom/server');
 
-function renderComponentFunction(component, props,options ={doctype: true}){
-    const element = React.createElement(component, {
+function renderComponentFunction(
+  component,
+  props,
+  options = { doctype: true }
+) {
+  const element = React.createElement(component, {
     ...this.locals,
     ...props,
-    })
+  });
 
-    const html = ReactDOMServer.renderToStaticMarkup(element)
-    return options.doctype ? `<!DOCTYPE html>${html}` : html;
+  const html = ReactDOMServer.renderToStaticMarkup(element);
+  return options.doctype ? `<!DOCTYPE html>${html}` : html;
 }
 
-//мидлварка на отрисовку
+function renderComponent(req, res, next) {
+  res.renderComponent = renderComponentFunction;
 
-function renderComponent(req,res,next){
-res.renderComponent = renderComponentFunction
-
-next()
-
+  next();
 }
 
-module.exports = renderComponent
+module.exports = renderComponent;

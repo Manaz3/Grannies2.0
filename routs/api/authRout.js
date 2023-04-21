@@ -17,45 +17,34 @@ authApiRouter.post('/register', async (req, res) => {
       if (select === '1') {
        const existingUser = await Granny.findOne({ where: { login } });
       if (existingUser) {
-        res
-          .status(409)
-          .json({ success: false, message: 'Пользователь с таким логином уже существует' });
+        res.status(409).json({
+          success: false,
+          message: 'Пользователь с таким логином уже существует',
+        });
         return;
       }
-      
-      // создаём пользователя в БД
       const user = await Granny.create({
         login,
         password: await bcrypt.hash(password, 10),
       });
-  
-      // авторизация - запоминаем пользователя
-      // req.session - хранилище сессии, которое уникально для каждого браузера
       req.session.userId = user.id;
-  
       res.status(201).json({ success: true });
     }
-
     if (select === '2') {
       const existingUser = await Grandson.findOne({ where: { login } });
       if (existingUser) {
-        res
-          .status(409)
-          .json({ success: false, message: 'Пользователь с таким логином уже существует' });
+        res.status(409).json({
+          success: false,
+          message: 'Пользователь с таким логином уже существует',
+        });
         return;
       }
-  
-      // создаём пользователя в БД
       const user = await Grandson.create({
         login,
         password: await bcrypt.hash(password, 10),
-        grannyLogin: grannyLogin
+        grannyLogin: grannyLogin,
       });
-  
-      // авторизация - запоминаем пользователя
-      // req.session - хранилище сессии, которое уникально для каждого браузера
       req.session.userId = user.id;
-  
       res.status(201).json({ success: true });
     }
       // res.redirect не работает на фечах. Редиректить нужно в клиентском скрипте
@@ -94,5 +83,22 @@ authApiRouter.post('/register', async (req, res) => {
 
   });
 
-  module.exports = authApiRouter
-  
+// authApiRouter.post('/login', async (req, res) => {
+//   const { login, password } = req.body;
+//   // ищем пользователя в БД
+//   const user = await User.findOne({ where: { login } });
+//   // password = '******'
+//   // user.password - хэш
+//   // compare - вернёт true если пароль правильный
+//   if (!user || !(await bcrypt.compare(password, user.password))) {
+//     res.json({ success: false, message: 'Нет такого пользователя либо пароли не совпадают' });
+//     return;
+//   }
+//   // авторизация - запоминаем пользователя
+//   // express-session сам создаст session-id и файл [sid].json
+//   // положил туда userId
+//   req.session.userId = user.id;
+//   res.json({ success: true });
+// });
+
+module.exports = authApiRouter;

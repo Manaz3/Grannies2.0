@@ -1,9 +1,8 @@
-require('@babel/register')
+require('@babel/register');
 require('dotenv').config();
 const express = require('express');
 const app = express();
 const session = require('express-session');
-
 
 const path = require('path');
 const getUser = require('./middlewares/getUser');
@@ -38,5 +37,5 @@ app.use('/', loginApiRouter)
 
 // const { PORT } = process.env;
 // app.listen(PORT, () => console.log(`Server started at ${PORT}`));
-app.listen(3000)
 
+app.listen(3000);
